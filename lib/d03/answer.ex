@@ -36,14 +36,12 @@ defmodule Adventofcode2018.D03.Answer do
       |> Enum.flat_map(fn x1 ->
         Enum.map((y + 1)..(y + h), fn y1 -> {x1, y1} end)
       end)
-      |> Enum.reduce(claimed, fn coordinate, claimed ->
-        claim(coordinate, claimed, id)
-      end)
+      |> Enum.reduce(claimed, &claim(&1, &2, id))
     end)
   end
 
   defp claim(coordinate, claimed, id) do
-    Map.update(claimed, coordinate, [id], fn claims -> [id | claims] end)
+    Map.update(claimed, coordinate, [id], fn claimed_ids -> [id | claimed_ids] end)
   end
 
   defp do_answer1(rows) do
