@@ -1,4 +1,4 @@
-defmodule Adventofcode2018.Test.D01_Test do
+defmodule Adventofcode2018.Test.D01Test do
   use ExUnit.Case
 
   test "first example passes answer1" do
