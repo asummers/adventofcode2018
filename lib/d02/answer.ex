@@ -32,7 +32,7 @@ defmodule Adventofcode2018.D02.Answer do
   end
 
   def answer2() do
-    "/Users/asummers/Code/adventcode/lib/d02/input.txt"
+    @input
     |> File.read!()
     |> String.split("\n", trim: true)
     |> do_answer2()
