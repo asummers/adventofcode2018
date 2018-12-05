@@ -1,8 +1,6 @@
 defmodule Adventofcode2018.D03.Answer do
   @input "priv/d03.txt"
 
-  defstruct [:x, :y, :w, :h, :id]
-
   defp parseint!(str) do
     {parsed, ""} = Integer.parse(str)
     parsed
