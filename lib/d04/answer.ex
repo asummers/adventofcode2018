@@ -17,7 +17,7 @@ defmodule Adventofcode2018.D04.Answer do
     do_answer1(rows)
   end
 
-  # Example: #1 @ 1,3: 4x4
+  # Example: [1518-11-05 00:03] Guard #99 begins shift
   defp parse(line) do
     [date, activity] = String.split(line, ["[", "]"], trim: true)
     activity = String.trim_leading(activity)
