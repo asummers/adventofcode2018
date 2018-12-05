@@ -17,7 +17,7 @@ defmodule Adventofcode2018.Test.D02_Test do
   end
 
   test "example passes answer2" do
-    input = ["abcde", "klmno", "pqrst", "fguij", "axcye", "wvxyz",  "fghij"]
+    input = ["abcde", "klmno", "pqrst", "fguij", "axcye", "wvxyz", "fghij"]
 
     result = Adventofcode2018.D02.Answer.answer2(input)
     assert(result == "fgij")

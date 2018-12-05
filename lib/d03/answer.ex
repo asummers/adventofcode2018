@@ -17,7 +17,6 @@ defmodule Adventofcode2018.D03.Answer do
     do_answer1(rows)
   end
 
-
   # Example: #1 @ 1,3: 4x4
   defp parse(line) do
     [id, x, y, w, h] =
@@ -33,9 +32,9 @@ defmodule Adventofcode2018.D03.Answer do
       %{id: id, x: x, y: y, w: w, h: h} = parse(row)
 
       # eww.
-      (x+1)..(x+w)
+      (x + 1)..(x + w)
       |> Enum.flat_map(fn x1 ->
-        Enum.map((y+1)..(y+h), fn y1 -> {x1, y1} end)
+        Enum.map((y + 1)..(y + h), fn y1 -> {x1, y1} end)
       end)
       |> Enum.reduce(claimed, fn coordinate, claimed ->
         claim(coordinate, claimed, id)

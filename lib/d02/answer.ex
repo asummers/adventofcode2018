@@ -49,6 +49,7 @@ defmodule Adventofcode2018.D02.Answer do
         single_differences =
           Enum.filter(input, fn letters ->
             difference = String.myers_difference(input_line, letters)
+
             single_letter_insert? =
               difference
               |> Keyword.get_values(:ins)
@@ -75,6 +76,7 @@ defmodule Adventofcode2018.D02.Answer do
   end
 
   defp single_letter_modification?(ins_or_del) do
-    (Enum.count(ins_or_del) == 1) && (ins_or_del |> hd |> String.split("", trim: true) |> Enum.count() == 1)
+    Enum.count(ins_or_del) == 1 &&
+      ins_or_del |> hd |> String.split("", trim: true) |> Enum.count() == 1
   end
 end
