@@ -55,12 +55,6 @@ defmodule Adventofcode2018.D05.Answer do
 
           {[], {next, next_previous}}
 
-        [first_previous | []] ->
-          next = [first_previous | rest]
-          next_previous = []
-
-          {[], {next, next_previous}}
-
         [first_previous | rest_previous] ->
           next = [first_previous | rest]
           next_previous = rest_previous
