@@ -83,11 +83,12 @@ defmodule Adventofcode2018.D05.Answer do
     @input
     |> File.read!()
     |> String.split("\n", trim: true)
+    |> hd()
     |> do_answer2()
   end
 
-  def answer2(numbers) when is_list(numbers) do
-    do_answer2(numbers)
+  def answer2(str) when is_bitstring(str) do
+    do_answer2(str)
   end
 
   defp do_answer2(_rows) do
