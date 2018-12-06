@@ -32,7 +32,7 @@ defmodule Adventofcode2018.D05.Answer do
     {letters, :halted}
   end
 
-  defp squash({[first | [second | []]], previous}) do
+  defp squash({[first, second | []], previous}) do
     if should_squash?(first, second) do
       next = previous
       next_previous = []
@@ -46,7 +46,7 @@ defmodule Adventofcode2018.D05.Answer do
     end
   end
 
-  defp squash({[first | [second | rest]], previous}) do
+  defp squash({[first, second | rest], previous}) do
     if should_squash?(first, second) do
       case previous do
         [] ->
