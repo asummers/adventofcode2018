@@ -91,7 +91,16 @@ defmodule Adventofcode2018.D05.Answer do
     do_answer2(str)
   end
 
-  defp do_answer2(_rows) do
+  defp do_answer2(str) do
+    ?a..?z
+    |> Enum.map(fn n ->
+      letter = <<n::utf8>>
 
+      str
+      |> String.replace(letter, "")
+      |> String.replace(String.upcase(letter), "")
+      |> do_answer1()
+    end)
+    |> Enum.min()
   end
 end
