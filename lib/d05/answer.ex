@@ -48,16 +48,25 @@ defmodule Adventofcode2018.D05.Answer do
 
   defp squash({[first | [second | rest]], previous}) do
     if should_squash?(first, second) do
-      # TODO: Can be more clever here and only consider previous, or
-      # something like that and not have to start over for performance
-      # reasons
-      next =
-        previous
-        |> Enum.reverse()
-        |> Enum.concat(rest)
-      next_previous = []
+      case previous do
+        [] ->
+          next = rest
+          next_previous = previous
 
-      {[], {next, next_previous}}
+          {[], {next, next_previous}}
+
+        [first_previous | []] ->
+          next = [first_previous | rest]
+          next_previous = []
+
+          {[], {next, next_previous}}
+
+        [first_previous | rest_previous] ->
+          next = [first_previous | rest]
+          next_previous = rest_previous
+
+          {[], {next, next_previous}}
+      end
     else
       next = [second | rest]
       next_previous = [first | previous]
